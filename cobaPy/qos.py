@@ -1,47 +1,46 @@
-dikirim = int(input("Dikirim: "))
-lostsegment = int(input("ditolak: "))
+# tcp.analysis.lost_segment && 
+# frame.time <= "Nov 15, 2022 09:34:26"
 
-diterima = dikirim - lostsegment
-byte = int(input("Data : "))
+packets = int(input("Packet : "))
+lostsegment = int(input("Lost Segment : "))
+byte = int(input("Data bytes : "))
 
-packetloss = ((dikirim - diterima)*100)/dikirim
+diterima = packets - lostsegment
+packetloss = ((packets - diterima)*100)/packets
 
 delay = 3600/diterima *1000
 
 variasidelay = 3600 - delay
 
-jitter = variasidelay*1000/diterima
-throughput = byte / 3600
-bit = throughput * 8
-print('\n')
-print("PACKET LOSS", round(packetloss,4), "%")
-print("DELAY", round(delay,4),"ms")
-print("VARIASI DELAY", round(variasidelay,4))
-print("JITTER", round(jitter, 4))
-print("THROUGHPUT", int(throughput))
-print(bit)
+jitter = variasidelay*1000 /diterima
+
+throughput = byte*8 / 3600
+
+print("\nPACKET LOSS", round(packetloss, 4), "%")
+print("DELAY", round(delay, 4),"ms")
+print("JITTER", round(jitter, 4), "ms")
+print("THROUGHPUT", round(int(throughput/1000), 4), "bps")
 
 ''' 15 NOV
-Dikirim: 215786
-Lost Segment: 12088
+Packet : 215786
+Lost Segment : 12088
+Data bytes : 149461025
 
 
-PACKET LOSS 5.601846273622941
-DELAY 17.673222122946715
-VARIASI DELAY 3599982.3267778773
-JITTER 17.673135361063327
-THROUGHPUT 56.58277777777778
+PACKET LOSS 5.6018 %
+DELAY 17.6732 ms
+JITTER 17.5865 ms
+THROUGHPUT 332.135 bps
 
 16 NOV
-Dikirim: 64539
-Lost Segment: 394
+Packet : 64539
+Lost Segment : 394
+Data bytes : 30604132
 
-
-PACKET LOSS 0.6104835835696246
-DELAY 56.12284667550082
-VARIASI DELAY 3599943.8771533244
-JITTER 56.121971738301106
-THROUGHPUT 17.818055555555556
+PACKET LOSS 0.6105 %
+DELAY 56.1228 ms
+JITTER 55.2479 ms
+THROUGHPUT 68.009 bps
 
 17 NOV
 Dikirim: 268061
@@ -55,15 +54,14 @@ JITTER 13.762099178660296
 THROUGHPUT 72.66305555555556
 
 21 NOV
-Dikirim: 381319
-Lost Segment: 27451
+Packet : 268293
+Lost Segment : 27451
+Data bytes : 181508598
 
-
-PACKET LOSS 7.198959401446033
-DELAY 10.173284953711553
-VARIASI DELAY 3599989.826715046
-JITTER 10.173256204898568
-THROUGHPUT 98.29666666666667
+PACKET LOSS 10.2317 %
+DELAY 14.9476 ms
+JITTER 14.8855 ms
+THROUGHPUT 403.352 bps
 
 24 NOV
 Dikirim: 397328
