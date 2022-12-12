@@ -1,22 +1,25 @@
 dikirim = int(input("Dikirim: "))
-lostsegment = int(input("Lost Segment: "))
+lostsegment = int(input("ditolak: "))
+
 diterima = dikirim - lostsegment
+byte = int(input("Data : "))
 
 packetloss = ((dikirim - diterima)*100)/dikirim
 
 delay = 3600/diterima *1000
 
-variasidelay = 3600*1000 - delay
+variasidelay = 3600 - delay
 
-jitter = variasidelay/diterima
-throughput = diterima / 3600
-
+jitter = variasidelay*1000/diterima
+throughput = byte / 3600
+bit = throughput * 8
 print('\n')
-print("PACKET LOSS", packetloss)
-print("DELAY", delay)
-print("VARIASI DELAY", variasidelay)
-print("JITTER", jitter)
-print("THROUGHPUT", throughput)
+print("PACKET LOSS", round(packetloss,4), "%")
+print("DELAY", round(delay,4),"ms")
+print("VARIASI DELAY", round(variasidelay,4))
+print("JITTER", round(jitter, 4))
+print("THROUGHPUT", int(throughput))
+print(bit)
 
 ''' 15 NOV
 Dikirim: 215786
