@@ -15,11 +15,13 @@ variasidelay = 3600 - delay
 jitter = variasidelay*1000 /diterima
 
 throughput = byte*8 / 3600
+throughput2 = diterima / 3600
 
 print("\nPACKET LOSS", round(packetloss, 4), "%")
 print("DELAY", round(delay, 4),"ms")
 print("JITTER", round(jitter, 4), "ms")
 print("THROUGHPUT", round(int(throughput/1000), 4), "bps")
+print("THROUGHPUT2", round(int(throughput2), 4), "bps")
 
 ''' 15 NOV
 Packet : 215786
