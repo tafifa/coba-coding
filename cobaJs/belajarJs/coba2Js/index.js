@@ -16,8 +16,8 @@
 
 // TODO 3
 
-class Tiger = require('./Tiger');
-class Wolf  = require('./Wolf');
+const Tiger = require('./Tiger');
+const Wolf  = require('./Wolf');
 
 
 const fight = (tiger, wolf) => {
