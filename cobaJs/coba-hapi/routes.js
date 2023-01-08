@@ -44,7 +44,10 @@ const routes = [
     path: '/login',
     handler: (request, h) => {
       const { username, password } = request.payload;
-      return `Welcome ${username}!`;
+      if (password == '1234') {
+        return `Welcome ${username}!`;
+      }
+      return 'Incorrect Password!';
     }
   },
   {
